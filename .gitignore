@@ -1,0 +1,70 @@
+# Eclipse
+.project
+.classpath
+.settings/
+*.launch
+*.buildpath
+.metadata
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/deployment.xml
+.idea/**/gradle.xml
+.idea/**/runConfigurations/
+.idea/**/shelf/
+.idea/**/libraries/
+.idea/**/projectId.xml
+.idea/**/misc.xml
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+
+# Maven
+target/
+
+# Compiled class files
+*.class
+
+# JAR files
+*.jar
+*.war
+*.ear
+
+# Packaging
+*.zip
+*.tar.gz
+*.tar
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment-specific
+.env
+*.env
+
+# IDE-specific files
+*.sublime-workspace
+*.sublime-project
+
+# Other
+*.bak
