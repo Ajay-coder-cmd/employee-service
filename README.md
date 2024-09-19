@@ -1,118 +1,67 @@
-# Coding Challenge
+# Employee Service
 
-### In this assessment you will be tasked with filling out the functionality of different methods that will be listed further down.
-These methods will require some level of api interactions with the following base url: https://dummy.restapiexample.com.
-Please keep the following in mind when doing this assessment: clean coding practices, test driven development, logging, and scalability.
-If you are unable to successfully receive responses from the endpoints, mocking the response calls may prove to be helpful.
+## Overview
 
-### Endpoints to implement
+This application provides a RESTful API for managing employee records. It allows users to perform various operations, including creating, retrieving, searching, and deleting employee data.
 
-getAllEmployees()
+## Base URL
 
-    output - list of employees
-    description - this should return all employees
+The application interacts with an external API hosted at `https://dummy.restapiexample.com`. 
+However, due to the API being unresponsive at the most of times, we have implemented a fallback mechanism 
+that utilizes a mock service (`MockEmployeeServiceImpl`). 
+This service provides dummy employee data to ensure the application remains functional even when the external API is unavailable.
 
-getEmployeesByNameSearch()
+## Features
 
-    output - list of employees
-    description - this should return all employees whose name contains or matches the string input provided
+- Retrieve all employees
+- Search employees by name
+- Get employee details by ID
+- Retrieve the highest salary among employees
+- Fetch the top 10 highest-earning employees
+- Create new employee records
+- Delete employee records by ID
 
-getEmployeeById(string id)
+## Exception Handling
 
-    output - employee
-    description - this should return a single employee
+Exception handling has been implemented thoroughly throughout the application to manage errors gracefully and provide meaningful feedback to users. Custom exceptions are used to handle specific scenarios, ensuring that users are informed of any issues encountered.
 
-getHighestSalaryOfEmployees()
+## Swagger Documentation
 
-    output - integer of the highest salary
-    description -  this should return a single integer indicating the highest salary of all employees
+Swagger documentation has been integrated into the application, allowing for easy exploration of the available API endpoints. You can access the 
+Swagger UI at `/swagger-ui/index.html` once the application is running.
 
-getTop10HighestEarningEmployeeNames()
+## Lombok
 
-    output - list of employees
-    description -  this should return a list of the top 10 employees based off of their salaries
+Lombok is used in this project to reduce boilerplate code, such as getters, setters, and constructors. Ensure you have Lombok installed and configured in your IDE for proper functioning.
 
-createEmployee(string name, string salary, string age)
+### IntelliJ IDEA
 
-    output - string of the status (i.e. success)
-    description -  this should return a status of success or failed based on if an employee was created
+1. Go to `File > Settings > Plugins`.
+2. Search for "Lombok" and install it.
+3. Enable annotation processing: `File > Settings > Build, Execution, Deployment > Compiler > Annotation Processors` and check "Enable annotation processing."
 
-deleteEmployee(String id)
+### Eclipse
 
-    output - the name of the employee that was deleted
-    description - this should delete the employee with specified id given
+1. Go to `Help > Eclipse Marketplace`.
+2. Search for "Lombok" and install it.
+3. Follow the installation instructions to integrate it with Eclipse.
 
-### External endpoints from base url
-#### This section will outline all available endpoints and their request and response models from https://dummy.restapiexample.com
-/employees
+## Running the Project
 
-    request:
-        method: GET
-        parameters: n/a
-        full route: https://dummy.restapiexample.com/api/v1/employees
-    response:
-        {
-            "status": "success",
-            "data": [
-                {
-                "id": "1",
-                "employee_name": "Tiger Nixon",
-                "employee_salary": "320800",
-                "employee_age": "61",
-                "profile_image": ""
-                },
-                ....
-            ]
-        }
+### In IntelliJ IDEA
 
-/employee/{id}
+1. Open the project in IntelliJ.
+2. Ensure that you have the necessary Gradle plugin installed.
+3. Click on the "Run" button or right-click the `Application` class and select `Run`.
+4. The application will start, and you can access it via the configured port.
 
-    request:
-        method: GET
-        parameters: 
-            id (String)
-        full route: https://dummy.restapiexample.com/api/v1/employee/{id}
-    response: 
-        {
-            "status": "success",
-            "data": {
-                "id": "1",
-                "employee_name": "Foo Bar",
-                "employee_salary": "320800",
-                "employee_age": "61",
-                "profile_image": ""
-            }
-        }
+### In Eclipse
 
-/create
+1. Open the project in Eclipse.
+2. Ensure that you have the Gradle plugin installed (e.g., Buildship).
+3. Right-click on the project and select `Run As > Gradle Build`.
+4. The application will start, and you can access it via the configured port.
 
-    request:
-        method: POST
-        parameters: 
-            name (String),
-            salary (String),
-            age (String)
-        full route: https://dummy.restapiexample.com/api/v1/create
-    response:
-        {
-            "status": "success",
-            "data": {
-                "name": "test",
-                "salary": "123",
-                "age": "23",
-                "id": 25
-            }
-        }
+## Conclusion
 
-/delete/{id}
-
-    request:
-        method: DELETE
-        parameters:
-            id (String)
-        full route: https://dummy.restapiexample.com/api/v1/delete/{id}
-    response:
-        {
-            "status": "success",
-            "message": "successfully! deleted Record"
-        }
+This Employee Management Application demonstrates effective API design, exception handling, and the use of Swagger for documentation. The fallback mechanism ensures resilience against external API failures.
